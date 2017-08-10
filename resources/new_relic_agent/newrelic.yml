@@ -189,13 +189,17 @@ common: &default_settings
     # by providing a comma separated list of full class names.
     # The default is to exclude akka.actor.ActorKilledException. If you want to override
     # this, you must provide any new value as an empty list is ignored.
-    ignore_errors: com.ge.fsmp.core.domains.exceptions.ValidationError
+    ignore_errors: akka.actor.ActorKilledException
 
     # Use this property to exclude specific http status codes from being reported as errors
     # by providing a comma separated list of status codes.
     # The default is to exclude 404s. If you want to override
     # this, you must provide any new value as an empty list is ignored.
     ignore_status_codes: 404
+    
+    expected_classes:
+      - 
+        "com.ge.fsmp.core.domains.exceptions.ValidationError"
 
   # Transaction Events are used for Histograms and Percentiles. Unaggregated data is collected
   # for each web transaction and sent to the server on harvest.
